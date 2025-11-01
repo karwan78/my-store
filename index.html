@@ -108,18 +108,15 @@ function decreaseQuantity(btn) {
 
 function updateCart() {
   let total = 0;
-  let count = 0;
   let totalQuantity = 0;
   document.querySelectorAll('.quantity').forEach(input => {
     const qty = parseInt(input.value) || 0;
     const price = parseFloat(input.dataset.price) || 0;
     if (qty > 0) {
       total += qty * price;
-      count++;
       totalQuantity += qty;
     }
   });
-  document.getElementById('cartCount').textContent = count;
   document.getElementById('cartTotalQuantity').textContent = totalQuantity;
   document.getElementById('cartTotal').textContent = total.toLocaleString();
 }
@@ -181,7 +178,6 @@ function sendToWhatsApp() {
   });
 
   message += '????????????????????%0A%0A';
-  message += '*جۆرى کاڵا:* ' + products.length + '%0A';
   message += '*کۆی کارتۆن:* ' + totalQty + '%0A';
   message += '*کۆی نرخ:* ' + totalPrice.toLocaleString() + ' دینار%0A';
 
