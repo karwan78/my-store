@@ -210,37 +210,37 @@ function sendToWhatsApp() {
   const date = now.toLocaleDateString('en-GB');
   const time = now.toLocaleTimeString('en-US', { hour: '2-digit', minute: '2-digit', hour12: true });
 
-  let message = '? *' + 'داواکاری نوێ' + '* ?%0A';
+  let message = '  *' + 'داواکاری نوێ' + '* %0A';
   message += '=========================%0A';
-  message += '?? ' + date + '  ?? ' + time + '%0A';
+  message += ' ' + date + '       ' + time + '%0A';
   message += '=========================%0A%0A';
-  message += '?? *' + 'زانیاری کڕیار* ??%0A';
+  message += ' *' + 'زانیاری کڕیار* %0A';
   message += '-------------------------%0A';
-  message += '?? ' + 'ناو: ' + agentName + '%0A';
-  message += '?? ' + 'موبایل: ' + agentMobile + '%0A';
-  message += '?? ' + 'ناونیشان: ' + agentAddress + '%0A';
+  message += ' ' + 'ناو: ' + agentName + '%0A';
+  message += ' ' + 'موبایل: ' + agentMobile + '%0A';
+  message += ' ' + 'ناونیشان: ' + agentAddress + '%0A';
   message += '-------------------------%0A%0A';
-  message += '?? *' + 'لیستی کاڵاکان* ??%0A';
+  message += ' *' + 'لیستی کاڵاکان* %0A';
   message += '=========================%0A%0A';
 
   products.forEach((product, index) => {
     message += '-------------------------%0A';
     message += '*' + (index + 1) + '. ' + product.name + '*%0A';
-    message += '   ??? ' + 'کۆد: `' + product.code + '`%0A';
-    message += '   ?? ' + 'بڕ: *' + product.qty + '*%0A';
-    message += '   ?? ' + 'نرخ: ' + product.price.toLocaleString() + ' دینار%0A';
-    message += '   ?? ' + 'کۆی گشتی: *' + product.total.toLocaleString() + ' دینار*%0A';
+    message += '    ' + 'کۆد: `' + product.code + '`%0A';
+    message += '    ' + 'بڕ: *' + product.qty + '*%0A';
+    message += '    ' + 'نرخ: ' + product.price.toLocaleString() + ' دینار%0A';
+    message += '    ' + 'کۆی گشتی: *' + product.total.toLocaleString() + ' دینار*%0A';
     if (product.imageUrl) {
-      message += '   ??? ' + product.imageUrl + '%0A';
+      message += '   ? ' + product.imageUrl + '%0A';
     }
     message += '%0A';
   });
 
   message += '=========================%0A';
-  message += '?? *' + 'کۆی کارتۆن: ' + totalQty + '* ??%0A';
-  message += '?? *' + 'کۆی نرخ: ' + totalPrice.toLocaleString() + ' دینار* ??%0A';
+  message += ' *' + 'کۆی کارتۆن: ' + totalQty + '* %0A';
+  message += ' *' + 'کۆی نرخ: ' + totalPrice.toLocaleString() + ' دینار* %0A';
   message += '=========================%0A%0A';
-  message += '? _' + 'Thank you for your order!' + '_ ?';
+  message += ' _' + 'Thank you for your order!' + '_ ';
 
   const phoneNumber = '9647507411341';
   const whatsappURL = 'https://wa.me/' + phoneNumber + '?text=' + message;
