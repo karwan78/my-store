@@ -15,8 +15,8 @@ h1 { text-align: center; color: #2c3e50; margin-bottom: 30px; font-size: 32px; }
 .agent-section h2 { font-size: 22px; margin-bottom: 15px; }
 .agent-select { width: 100%; padding: 12px; font-size: 16px; border: 2px solid #3498db; border-radius: 5px; margin-top: 10px; font-family: 'Noto Sans Arabic', Arial, sans-serif; }
 .agent-details { margin-top: 15px; padding: 15px; background: white; border-radius: 5px; font-size: 16px; }
-.category-message { margin: 20px 0; padding: 20px; background: #fff3cd; border: 2px solid #ffc107; border-radius: 8px; text-align: center; animation: pulse 2s infinite; }
-.category-message p { font-size: 24px; font-weight: bold; color: #856404; margin: 0; }
+.category-message { margin: 15px 0; padding: 15px; background: rgba(255, 0, 0, 0.3); border: 2px solid rgba(255, 0, 0, 0.6); border-radius: 8px; text-align: center; animation: pulse 2s infinite; }
+.category-message p { font-size: 24px; font-weight: bold; color: #0000FF; margin: 0; }
 @keyframes pulse { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.05); } }
 .category-buttons-container { margin: 30px 0; padding: 20px; background: #e8f4f8; border-radius: 8px; }
 .category-buttons-container h2 { font-size: 22px; margin-bottom: 15px; }
@@ -194,37 +194,37 @@ function sendToWhatsApp() {
   const date = now.toLocaleDateString('en-GB');
   const time = now.toLocaleTimeString('en-US', { hour: '2-digit', minute: '2-digit', hour12: true });
 
-  let message = '? *' + 'داواکاری نوێ' + '* ?%0A';
+  let message = '==   *' + 'داواکاری نوێ' + '*   ==%0A';
   message += '=========================%0A';
-  message += '?? ' + date + '  ?? ' + time + '%0A';
+  message += '     ' + date + '         ' + time + '%0A';
   message += '=========================%0A%0A';
-  message += '?? *' + 'زانیاری کڕیار* ??%0A';
+  message += '   *' + 'زانیاری کڕیار*    %0A';
   message += '-------------------------%0A';
-  message += '?? ' + 'ناو: ' + agentName + '%0A';
-  message += '?? ' + 'موبایل: ' + agentMobile + '%0A';
-  message += '?? ' + 'ناونیشان: ' + agentAddress + '%0A';
+  message += '   ' + 'ناو: ' + agentName + '%0A';
+  message += '   ' + 'موبایل: ' + agentMobile + '%0A';
+  message += '   ' + 'ناونیشان: ' + agentAddress + '%0A';
   message += '-------------------------%0A%0A';
-  message += '?? *' + 'لیستی کاڵاکان* ??%0A';
+  message += '   *' + 'لیستی کاڵاکان*   %0A';
   message += '=========================%0A%0A';
 
   products.forEach((product, index) => {
     message += '-------------------------%0A';
     message += '*' + (index + 1) + '. ' + product.name + '*%0A';
-    message += '   ??? ' + 'کۆد: `' + product.code + '`%0A';
-    message += '   ?? ' + 'بڕ: *' + product.qty + '*%0A';
-    message += '   ?? ' + 'نرخ: ' + product.price.toLocaleString() + ' دینار%0A';
-    message += '   ?? ' + 'کۆی گشتی: *' + product.total.toLocaleString() + ' دینار*%0A';
+    message += '      ' + 'کۆد: `' + product.code + '`%0A';
+    message += '      ' + 'بڕ: *' + product.qty + '*%0A';
+    message += '      ' + 'نرخ: ' + product.price.toLocaleString() + ' دینار%0A';
+    message += '      ' + 'کۆی گشتی: *' + product.total.toLocaleString() + ' دینار*%0A';
     if (product.imageUrl) {
-      message += '   ??? ' + product.imageUrl + '%0A';
+      message += '      ' + product.imageUrl + '%0A';
     }
     message += '%0A';
   });
 
   message += '=========================%0A';
-  message += '?? *' + 'کۆی کارتۆن: ' + totalQty + '* ??%0A';
-  message += '?? *' + 'کۆی نرخ: ' + totalPrice.toLocaleString() + ' دینار* ??%0A';
+  message += '   *' + 'کۆی کارتۆن: ' + totalQty + '*   %0A';
+  message += '   *' + 'کۆی نرخ: ' + totalPrice.toLocaleString() + ' دینار*   %0A';
   message += '=========================%0A%0A';
-  message += '? _' + 'Thank you for your order!' + '_ ?';
+  message += '  _' + 'Thank you for your order!' + '_  ';
 
   const phoneNumber = '9647507411341';
   const whatsappURL = 'https://wa.me/' + phoneNumber + '?text=' + message;
